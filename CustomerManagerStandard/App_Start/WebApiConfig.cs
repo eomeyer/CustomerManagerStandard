@@ -1,9 +1,12 @@
-﻿using Newtonsoft.Json;
+﻿using CustomerManagerStandard.Models;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.OData.Builder;
+using System.Web.OData.Extensions;
 
 namespace CustomerManagerStandard
 {
@@ -15,6 +18,14 @@ namespace CustomerManagerStandard
 
             // Web API routes
             config.MapHttpAttributeRoutes();
+
+            ODataModelBuilder builder = new ODataConventionModelBuilder();
+            builder.EntitySet<Customer>("Customers");
+            config.MapODataServiceRoute(
+                routeName: "ODataRoute",
+                routePrefix: "odata",
+                model: builder.GetEdmModel());
+
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",

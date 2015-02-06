@@ -29,7 +29,7 @@ namespace CustomerManagerStandard.Migrations
               new Models.Title { Name = "Dr"}
             );
 
-            context.Cutomers.AddOrUpdate(
+            context.Customers.AddOrUpdate(
                 p => p.ID,
                 new Models.Customer { ContactNumber="0824506035", Email="eckard@kaizenit.net", FirstName="Eckard", ID=1, Surname="Meyer", TitleID=1, Gender=Models.Gender.Male }
                 );

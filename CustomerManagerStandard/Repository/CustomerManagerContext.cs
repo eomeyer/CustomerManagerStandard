@@ -16,7 +16,7 @@ namespace CustomerManagerStandard.Repository
         static CustomerManagerContext() 
         { 
         }
-        public DbSet<Models.Customer> Cutomers { get; set; }
+        public DbSet<Models.Customer> Customers { get; set; }
         public DbSet<Models.Title> Titles { get; set; }
     }
 }
